@@ -39,6 +39,7 @@
              SOURCE_USER="repl",
              SOURCE_PASSWORD="password",
              SOURCE_AUTO_POSITION = 1;
+    START REPLICA;
     ```
 - Check replication status
     + `SHOW REPLICA STATUS\G`
