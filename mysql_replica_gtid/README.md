@@ -27,7 +27,7 @@
 - Move dữ liệu từ được copy từ bên master đến folder `/var/lib/mysql` bên slave
     + `mv /root/backup_from_master /var/lib/mysql`
 - Chuyển permisstion của folder `/var/lib/mysql` mới được copy
-    + `chown mysql:mysql /var/lib/mysql`
+    + `chown -R mysql:mysql /var/lib/mysql`
 - Start lại mysql trên replica node
     + `systemctl restart mysql`
 - Cấu hình và restart replication
