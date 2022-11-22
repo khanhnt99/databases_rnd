@@ -21,12 +21,17 @@
     + Thực hiện trên slave node: `mkdir -p /var/mariadb/backup`
     + `scp -r /var/mariadb/backup/ root@slave_ip:/var/mariadb/backup`
 ## 2. Thực hiện trên slave node
+- Stop mariadb
+    + `systemctl stop mysql`
+- mv `/var/lib/mysql /opt/mysql_bak`
 - Restore backup vào trong thư mục `/var/lib/mysql`
     ```
     mariabackup --copy-back \
     --target-dir=/var/mariadb/backup/
     ```
 - `chown -R mysql:mysql /var/lib/mysql/`
+- Start mariadb
+    + `systemctl start mysql`
 ### GTID
 ```
 cat xtrabackup_binlog_info
@@ -45,6 +50,7 @@ START SLAVE;
 ```
 - Phase sau: Sử dụng MariadbMaxscale để LB các node database
     + https://mariadb.com/kb/en/maxscale/
-
+- `show slave status\G`
 __Docs__
 - https://mariadb.com/kb/en/setting-up-a-replica-with-mariabackup/
+- https://sqlconjuror.com/mariadb-setup-gtid-replication-using-mariabackup/
