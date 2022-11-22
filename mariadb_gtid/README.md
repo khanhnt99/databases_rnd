@@ -32,7 +32,7 @@
 - `chown -R mysql:mysql /var/lib/mysql/`
 - Start mariadb
     + `systemctl start mysql`
-### GTID
+#### GTID
 ```
 cat xtrabackup_binlog_info
 mariadb-bin.000096 568 0-1-2
@@ -48,9 +48,10 @@ CHANGE MASTER TO
    MASTER_USE_GTID=slave_pos;
 START SLAVE;
 ```
+- `show slave status\G`
 - Phase sau: Sử dụng MariadbMaxscale để LB các node database
     + https://mariadb.com/kb/en/maxscale/
-- `show slave status\G`
+
 __Docs__
 - https://mariadb.com/kb/en/setting-up-a-replica-with-mariabackup/
 - https://sqlconjuror.com/mariadb-setup-gtid-replication-using-mariabackup/
