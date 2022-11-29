@@ -1,0 +1,2 @@
+- Slow query logs
+  - https://ma.ttias.be/mysql-slow-query-log-without-restart/
