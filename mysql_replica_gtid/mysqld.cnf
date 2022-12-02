@@ -1,0 +1,30 @@
+innodb_stats_on_metadata = OFF
+innodb_temp_data_file_path = ../../../dev/shm/mysql/ibtmp1:12M:autoextend:max:64M
+innodb_data_file_path= ibdata1:12M:autoextend
+innodb_buffer_pool_size = 5G
+innodb_buffer_pool_instances = 8
+innodb_log_files_in_group = 2
+innodb_flush_log_at_trx_commit = 2
+innodb_log_file_size = 256M
+innodb_log_buffer_size = 8M
+innodb_read_io_threads = 4
+innodb_write_io_threads = 2
+innodb_io_capacity = 300
+innodb_io_capacity_max = 2000
+innodb_open_files = 524288
+
+#
+# * Logging and Replication
+#
+gtid_mode = ON
+enforce-gtid-consistency = ON
+log_bin = mariadb-02
+server_id = 2
+binlog_format = ROW
+binlog_expire_logs_seconds = 432000
+log_error = /var/log/mysql/error.log
+log_queries_not_using_indexes = 1
+log_error_verbosity = 2
+slow_query_log = ON
+slow_query_log_file = /var/log/mysql/slow_queries.log
+long_query_time = 30
